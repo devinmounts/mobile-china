@@ -16,6 +16,9 @@ config = {
 }
 link = mysql.connector.connect(**config)
 
+# /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
+
+
 @app.route("/")
 def index():
     return 'index'
