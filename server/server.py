@@ -7,14 +7,14 @@ import json
 
 app = Flask(__name__)
 
-config = {
-  'user': 'root',
-  'password': 'root',
-  'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
-  'database': 'mobile_china',
-  'raise_on_warnings': True,
-}
-link = mysql.connector.connect(**config)
+# config = {
+#   'user': 'root',
+#   'password': 'root',
+#   'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
+#   'database': 'mobile_china',
+#   'raise_on_warnings': True,
+# }
+# link = mysql.connector.connect(**config)
 
 # /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
 
@@ -26,18 +26,8 @@ def index():
 
 @app.route("/data")
 def get_data():
-    mycursor = link.cursor()
-    print(mycursor, 'before SQL')
-    mycursor.execute("SELECT * FROM gender_age_train LEFT JOIN events ON gender_age_train.device_id = events.device_id LEFT JOIN phone_brand_device_model ON gender_age_train.device_id = phone_brand_device_model.device_id LIMIT 10")
-    print('after sql')
+  gen_age_train = pd.read_csv()
 
-    SELECT * FROM gender_age_train INNER JOIN events ON gender_age_train.device_id = events.device_id INNER JOIN phone_brand_device_model ON gender_age_train.device_id = phone_brand_device_model.device_id LIMIT 10
-    # myresult = mycursor.fetchall()
-
-    # resultArray = []
-    # print('before loop')
-    # for entry in myresult:
-    #   resultArray.append(entry)
 
     return 'data works'
 
