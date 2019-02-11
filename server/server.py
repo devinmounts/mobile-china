@@ -7,7 +7,7 @@ from flask import Flask
 from flask import render_template
 import json
 
-data_path = '~/desktop/data/'
+data_path = './data/'
 n_samples = 30000
 
 #create age segments
@@ -36,7 +36,7 @@ def get_location(longitude, latitude, provinces_json):
           return record['properties']['name']
   return 'other'
 
-with open('./../data/chinese_provinces_en.json') as data_file:
+with open(data_path + 'chinese_provinces_en.json') as data_file:
   provinces_json = json.load(data_file)
 # config = {
 #   'user': 'root',
@@ -76,7 +76,7 @@ def get_data():
 
     df['phone_brand_en'] = df['phone_brand'].apply(lambda phone_brand: top_10_brands_en[phone_brand] if (phone_brand in top_10_brands_en) else 'Other')
     
-    df['age-segment'] = df['age'].apply(lambda age: get_age_segment(age))
+    df['age_segment'] = df['age'].apply(lambda age: get_age_segment(age))
     
     df['location'] = df.apply(lambda row: get_location(row['longitude'], row['latitude'], provinces_json), axis=1)
 
