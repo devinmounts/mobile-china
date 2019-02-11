@@ -23,5 +23,5 @@ client/yarn-debug.log*
 client/yarn-error.log*
 
 #/data
-data/
+server/data
 
