@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import queue from 'queue';
-import * as d3 from 'd3';
+import * as d3 from 'd3v4';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
+    
+    this.state = {
+      apiData: null
+    }
   }
 
   componentWillMount() {
-    console.log();
-
-    queue()
-      // .defer(d3.json, '/data')
-      // .await(this.makeGraphs)
+      d3.queue()
+        // .defer(d3.json, )
+    
   }
   
   makeGraphs(error, recordsJson) {

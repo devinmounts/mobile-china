@@ -5,6 +5,7 @@
   "dependencies": {
     "crossfilter": "^1.3.12",
     "d3": "^5.9.1",
+    "d3v4": "^4.2.2",
     "dcharts": "^1.1.1",
     "leaflet": "^1.4.0",
     "queue": "^5.0.1",
